@@ -1,0 +1,12 @@
+digraph DER {
+  graph [rankdir=LR, bgcolor="white", nodesep=.7, ranksep=1.1, pad=.25];
+  node [shape=record, style="rounded,filled", fillcolor="#EAF5F0", color="#126B57", fontname="DejaVu Sans", fontsize=12, margin="0.18,0.12"];
+  edge [color="#34665B", penwidth=1.5, fontname="DejaVu Sans", fontsize=10];
+  cid [label="{BV_CIDADAO|PK ID_CIDADAO\lNOME_EXIBICAO\lCRIADO_EM\l}"];
+  cat [label="{BV_CATEGORIA|PK ID_CATEGORIA\lNOME\l}"];
+  oc [label="{BV_OCORRENCIA|PK ID_OCORRENCIA\lFK ID_CIDADAO\lFK ID_CATEGORIA\lTITULO\lDESCRICAO\lLOCAL_REFERENCIA\lSTATUS\lCRIADO_EM\lATUALIZADO_EM\l}"];
+  hist [label="{BV_HISTORICO|PK ID_HISTORICO\lFK ID_OCORRENCIA\lSTATUS_ANTERIOR\lSTATUS_NOVO\lALTERADO_EM\lOBSERVACAO\l}"];
+  cid -> oc [label="1 : N"];
+  cat -> oc [label="1 : N"];
+  oc -> hist [label="1 : N"];
+}
